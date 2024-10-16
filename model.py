@@ -1,0 +1,55 @@
+from deepxrte.gradients import gradient, derivee_seconde
+import torch 
+import torch.nn as nn 
+
+alpha = 1.2
+L = 0.05
+V0 = 1.
+
+def pde(U, input, Re, t_max):
+    # je sais qu'il fonctionne bien ! Il a été vérifié
+    """Calcul la pde 
+
+    Args:
+        U (_type_): u,v,p calcullés par le NN 
+        input (_type_): l'input (x,y,t)
+    """
+    u = U[:,0].reshape(-1,1)
+    v = U[:,1].reshape(-1,1)
+    p = U[:,2].reshape(-1,1)
+    u_x = gradient(U, input, i=0, j=0, keep_gradient=True).reshape(-1,1)
+    u_y = gradient(U, input, i=0, j=1, keep_gradient=True).reshape(-1,1)
+    p_x = gradient(U, input, i=2, j=0, keep_gradient=True).reshape(-1,1)
+    p_y = gradient(U, input, i=2, j=1, keep_gradient=True).reshape(-1,1)
+    u_t = gradient(U, input, i=0, j=2, keep_gradient=True).reshape(-1,1)
+    v_x = gradient(U, input, i=1, j=0, keep_gradient=True).reshape(-1,1)
+    v_y = gradient(U, input, i=1, j=1, keep_gradient=True).reshape(-1,1)
+    v_t = gradient(U, input, i=1, j=2, keep_gradient=True).reshape(-1,1)
+    u_xx = derivee_seconde(u, input, j=0).reshape(-1,1)
+    u_yy = derivee_seconde(u, input, j=1).reshape(-1,1)
+    v_xx = derivee_seconde(v, input, j=0).reshape(-1,1)
+    v_yy = derivee_seconde(v, input, j=1).reshape(-1,1)
+    equ_1 = (L/(V0*t_max))*u_t + u * u_x + v*u_y + p_x - (1/Re)*(u_xx + u_yy)
+    equ_2 = (L/(V0*t_max))*v_t + u*v_x + v*v_y + p_y - (1/Re) * (v_xx +v_yy)
+    equ_3 = u_x + v_y 
+    return equ_1, equ_2, equ_3
+    
+## Le NN 
+
+class PINNs(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.fc1 = nn.Linear(3, 64)  # Couche d'entrée avec 2 neurones d'entrée et 16 neurones cachés
+        self.fc2 = nn.Linear(64, 64)
+        self.fc3 = nn.Linear(64, 32)
+        self.fc4 = nn.Linear(32, 32)
+        self.fcf = nn.Linear(32, 3)
+
+    def forward(self, x):
+        x = torch.tanh(self.fc1(x))
+        x = torch.tanh(self.fc2(x))
+        x = torch.tanh(self.fc3(x))
+        x = torch.tanh(self.fc4(x))
+        x = self.fcf(x)
+        return x # Retourner la sortie
+    
