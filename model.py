@@ -29,8 +29,8 @@ def pde(U, input, Re, t_max):
     u_yy = derivee_seconde(u, input, j=1).reshape(-1,1)
     v_xx = derivee_seconde(v, input, j=0).reshape(-1,1)
     v_yy = derivee_seconde(v, input, j=1).reshape(-1,1)
-    equ_1 = (L/(V0*t_max))*u_t + u * u_x + v*u_y + p_x - (1/Re)*(u_xx + u_yy)
-    equ_2 = (L/(V0*t_max))*v_t + u*v_x + v*v_y + p_y - (1/Re) * (v_xx +v_yy)
+    equ_1 = u_t + u * u_x + v*u_y + p_x - (1/Re)*(u_xx + u_yy)
+    equ_2 = v_t + u*v_x + v*v_y + p_y - (1/Re) * (v_xx +v_yy)
     equ_3 = u_x + v_y 
     return equ_1, equ_2, equ_3
     

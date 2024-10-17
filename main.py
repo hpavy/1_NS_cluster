@@ -18,23 +18,23 @@ time_start = time.time()
 
 ############# LES VARIABLES ################
 
-folder_result = '3_test'  # le nom du dossier de résultat
+folder_result = '2_new_pde'  # le nom du dossier de résultat
 
 
 torch.manual_seed(42537)
 
 ##### Le modèle de résolution de l'équation de la chaleur
-nb_itt = 15000      # le nb d'epoch
-resample_rate = 1000  # le taux de resampling
+nb_itt = 500      # le nb d'epoch
+resample_rate = 2500  # le taux de resampling
 display = 500       # le taux d'affichage
-poids = [1, 1]   # les poids pour la loss
+poids = [3, 1]   # les poids pour la loss
 
 x_max = 1
 y_max = 2
 
     
-n_data = 15000         # le nb de points initiaux
-n_pde = 15000          # le nb de points pour la pde
+n_data = 5000         # le nb de points initiaux
+n_pde = 5000          # le nb de points pour la pde
 
 n_data_test = 5000
 n_pde_test  = 5000
@@ -43,7 +43,7 @@ L = 0.05
 V0 = 1.
 Re = 100
 
-lr = 5e-4
+lr = 5e-3
 
 ##### Le code ###############################
 ###############################################
@@ -58,11 +58,12 @@ x, y, t = np.array(df_modified['Points:0']), np.array(df_modified['Points:1']), 
 u, v, p = np.array(df_modified['Velocity:0']), np.array(df_modified['Velocity:1']), np.array(df_modified['Pressure'])
 x_ad = (x-x.min())/L
 y_ad = (y-y.min())/L
-t_ad = t/t.max()
+t_ad = t*V0/L                 # Nouvel adimensionnement
 
 p_ad = p/(V0**2)
 u_ad = u/V0
 v_ad = v/V0
+print(f"u {u.max()}")
 
 X = np.array([x_ad, y_ad, t_ad], dtype=np.float32).T
 U = np.array([u_ad, v_ad, p_ad], dtype=np.float32).T
@@ -70,6 +71,8 @@ U = np.array([u_ad, v_ad, p_ad], dtype=np.float32).T
 t_ad_min = t_ad.min()
 t_ad_max = t_ad.max()
 t_max = t.max()
+
+print(t_ad_max)
 
 
 # On regarde si le dossier existe 
