@@ -41,15 +41,27 @@ class PINNs(nn.Module):
         super().__init__()
         self.fc1 = nn.Linear(3, 64)  # Couche d'entrée avec 2 neurones d'entrée et 16 neurones cachés
         self.fc2 = nn.Linear(64, 64)
-        self.fc3 = nn.Linear(64, 32)
-        self.fc4 = nn.Linear(32, 32)
-        self.fcf = nn.Linear(32, 3)
+        self.fc3 = nn.Linear(64, 64)
+        self.fc4 = nn.Linear(64, 64)
+        self.fc5 = nn.Linear(64, 64)
+        self.fc6 = nn.Linear(64, 64)
+        self.fc7 = nn.Linear(64, 64)
+        self.fc8 = nn.Linear(64, 64)
+        self.fc9 = nn.Linear(64, 64)
+        self.fc10 = nn.Linear(64, 64)
+        self.fcf = nn.Linear(64, 3)
 
     def forward(self, x):
         x = torch.tanh(self.fc1(x))
         x = torch.tanh(self.fc2(x))
         x = torch.tanh(self.fc3(x))
         x = torch.tanh(self.fc4(x))
+        x = torch.tanh(self.fc5(x))
+        x = torch.tanh(self.fc6(x))
+        x = torch.tanh(self.fc7(x))
+        x = torch.tan(self.fc8(x))
+        x = torch.tan(self.fc9(x))
+        x = torch.tan(self.fc10(x))
         x = self.fcf(x)
         return x # Retourner la sortie
     

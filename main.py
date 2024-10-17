@@ -18,27 +18,32 @@ time_start = time.time()
 
 ############# LES VARIABLES ################
 
-folder_result = 'test_piche' # le nom du dossier de résultat
+folder_result = '3_test'  # le nom du dossier de résultat
+
+
+torch.manual_seed(42537)
 
 ##### Le modèle de résolution de l'équation de la chaleur
-nb_itt = 2000      # le nb d'epoch
-resample_rate = 500 # le taux de resampling
+nb_itt = 15000      # le nb d'epoch
+resample_rate = 1000  # le taux de resampling
 display = 500       # le taux d'affichage
-poids = [1,1,1]   # les poids pour la loss
+poids = [1, 1]   # les poids pour la loss
 
 x_max = 1
 y_max = 2
 
     
-n_data = 1500         # le nb de points initiaux
-n_pde = 1500          # le nb de points pour la pde
+n_data = 15000         # le nb de points initiaux
+n_pde = 15000          # le nb de points pour la pde
 
-n_data_test = 1500
-n_pde_test  = 1500
+n_data_test = 5000
+n_pde_test  = 5000
 
 L = 0.05
 V0 = 1.
-Re=100
+Re = 100
+
+lr = 5e-4
 
 ##### Le code ###############################
 ###############################################
@@ -80,7 +85,7 @@ rectangle = Rectangle(x_max = x_max, y_max = y_max,
 rectangle = Rectangle(x_max = x_max, y_max = y_max, t_min=t_ad.min(), t_max=t_ad.max())
 
 ### Pour train
-points_pde = rectangle.generate_random(n_pde)   # les points pour la pde
+points_pde = rectangle.generate_random(n_pde).to(device)   # les points pour la pde
 points_data_train = np.random.choice(len(X), n_data, replace=False)
 inputs_train_data = torch.from_numpy(X[points_data_train]).requires_grad_().to(device)
 outputs_train_data = torch.from_numpy(U[points_data_train]).requires_grad_().to(device)
@@ -94,7 +99,7 @@ U_test_data = torch.from_numpy(U[points_coloc_test]).requires_grad_().to(device)
 
 # Initialiser le modèle
 model = PINNs().to(device)
-optimizer = optim.Adam(model.parameters(), lr=1e-3)
+optimizer = optim.Adam(model.parameters(), lr=lr)
 loss = nn.MSELoss()
 
 # On plot les print dans un fichier texte 
@@ -123,11 +128,10 @@ with open(folder_result+'/print.txt', 'a') as f:
           outputs_train_data=outputs_train_data, points_pde=points_pde,
           model=model, loss=loss, optimizer=optimizer, X=X, U=U, n_pde=n_pde, X_test_pde=X_test_pde,
           X_test_data=X_test_data, U_test_data=U_test_data, n_data=n_data, rectangle=rectangle,
-          device=device, Re=Re, t_max=t_max)
+          device=device, Re=Re, t_max=t_max, time_start=time_start, f=f)
 
     ####### On save le model et les losses
     torch.save(model.state_dict(), folder_result+'/model_weights.pth')
     write_csv(train_loss, folder_result, file_name='/train_loss.csv')
     write_csv(test_loss, folder_result, file_name='/test_loss.csv')
     
-print(time.time()-time_start)
