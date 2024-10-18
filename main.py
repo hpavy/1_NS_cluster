@@ -18,20 +18,16 @@ time_start = time.time()
 
 ############# LES VARIABLES ################
 
-folder_result = '3_mini_test'  # le nom du dossier de résultat
+folder_result = '4_new_interval'  # le nom du dossier de résultat
 
 
 torch.manual_seed(42537)
 
 ##### Le modèle de résolution de l'équation de la chaleur
-nb_itt = 5000      # le nb d'epoch
-resample_rate = 2500  # le taux de resampling
+nb_itt = 6000      # le nb d'epoch
+resample_rate = 3000  # le taux de resampling
 display = 500       # le taux d'affichage
 poids = [1, 1]   # les poids pour la loss
-
-x_max = 1
-y_max = 2
-
     
 n_data = 5000         # le nb de points initiaux
 n_pde = 5000          # le nb de points pour la pde
@@ -43,7 +39,7 @@ L = 0.05
 V0 = 1.
 Re = 100
 
-lr = 1e-3
+lr = 1e-4
 
 ##### Le code ###############################
 ###############################################
@@ -72,6 +68,9 @@ t_ad_min = t_ad.min()
 t_ad_max = t_ad.max()
 t_max = t.max()
 
+x_ad_max = x_ad.max()
+y_ad_max = y_ad.max()
+
 print(f"t_ad_max:{t_ad_max}, t_ad_min:{t_ad_min}, ")
 
 
@@ -79,13 +78,12 @@ print(f"t_ad_max:{t_ad_max}, t_ad_min:{t_ad_min}, ")
 dossier = Path(folder_result)
 dossier.mkdir(parents=True, exist_ok=True)
 
-rectangle = Rectangle(x_max = x_max, y_max = y_max,
+rectangle = Rectangle(x_max = x_ad_max, y_max = y_ad_max,
                       t_min=t_ad_min, t_max=t_ad_max)    # le domaine de résolution
 
 
 # les points initiaux du train 
 # Les points de pde 
-rectangle = Rectangle(x_max = x_max, y_max = y_max, t_min=t_ad.min(), t_max=t_ad.max())
 
 ### Pour train
 points_pde = rectangle.generate_random(n_pde).to(device)   # les points pour la pde
@@ -131,7 +129,7 @@ with open(folder_result+'/print.txt', 'a') as f:
           outputs_train_data=outputs_train_data, points_pde=points_pde,
           model=model, loss=loss, optimizer=optimizer, X=X, U=U, n_pde=n_pde, X_test_pde=X_test_pde,
           X_test_data=X_test_data, U_test_data=U_test_data, n_data=n_data, rectangle=rectangle,
-          device=device, Re=Re, t_max=t_max, time_start=time_start, f=f)
+          device=device, Re=Re, time_start=time_start, f=f)
 
     ####### On save le model et les losses
     torch.save(model.state_dict(), folder_result+'/model_weights.pth')

@@ -7,7 +7,7 @@ import time
 def train(nb_itt, train_loss, test_loss, resample_rate, display, poids,
           inputs_train_data, outputs_train_data, points_pde,
           model, loss, optimizer, X, U, n_pde, X_test_pde,
-          X_test_data, U_test_data, n_data, rectangle, device, Re, t_max, 
+          X_test_data, U_test_data, n_data, rectangle, device, Re, 
           time_start, f): 
     nb_it_tot = nb_itt + len(train_loss)
     # Nos datas initiales
@@ -22,7 +22,7 @@ def train(nb_itt, train_loss, test_loss, resample_rate, display, poids,
 
         ## loss du pde
         pred_pde = model(X_train_pde)
-        pred_pde1, pred_pde2, pred_pde3 = pde(pred_pde, X_train_pde, Re=Re, t_max=t_max) 
+        pred_pde1, pred_pde2, pred_pde3 = pde(pred_pde, X_train_pde, Re=Re) 
         loss_pde = torch.mean(torch.abs(pred_pde1)) + torch.mean(torch.abs(pred_pde2)) + torch.mean(torch.abs((pred_pde3))) #(MSE) 
         
 
@@ -44,7 +44,7 @@ def train(nb_itt, train_loss, test_loss, resample_rate, display, poids,
         
         # loss du pde
         test_pde = model(X_test_pde)
-        test_pde1, test_pde2, test_pde3 = pde(test_pde, X_test_pde, Re=Re, t_max=t_max) #(MSE)
+        test_pde1, test_pde2, test_pde3 = pde(test_pde, X_test_pde, Re=Re) #(MSE)
         loss_test_pde = torch.mean(torch.abs(test_pde1)) + torch.mean(torch.abs(test_pde2)) + torch.mean(torch.abs((test_pde3))) #(MSE) 
         
         # loss de la data

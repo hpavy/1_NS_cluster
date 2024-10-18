@@ -6,7 +6,7 @@ alpha = 1.2
 L = 0.05
 V0 = 1.
 
-def pde(U, input, Re, t_max):
+def pde(U, input, Re):
     # je sais qu'il fonctionne bien ! Il a été vérifié
     """Calcul la pde 
 
