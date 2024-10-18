@@ -18,16 +18,16 @@ time_start = time.time()
 
 ############# LES VARIABLES ################
 
-folder_result = '2_new_pde'  # le nom du dossier de résultat
+folder_result = '3_mini_test'  # le nom du dossier de résultat
 
 
 torch.manual_seed(42537)
 
 ##### Le modèle de résolution de l'équation de la chaleur
-nb_itt = 500      # le nb d'epoch
+nb_itt = 5000      # le nb d'epoch
 resample_rate = 2500  # le taux de resampling
 display = 500       # le taux d'affichage
-poids = [3, 1]   # les poids pour la loss
+poids = [1, 1]   # les poids pour la loss
 
 x_max = 1
 y_max = 2
@@ -43,7 +43,7 @@ L = 0.05
 V0 = 1.
 Re = 100
 
-lr = 5e-3
+lr = 1e-3
 
 ##### Le code ###############################
 ###############################################
@@ -72,7 +72,7 @@ t_ad_min = t_ad.min()
 t_ad_max = t_ad.max()
 t_max = t.max()
 
-print(t_ad_max)
+print(f"t_ad_max:{t_ad_max}, t_ad_min:{t_ad_min}, ")
 
 
 # On regarde si le dossier existe 

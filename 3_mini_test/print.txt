@@ -1,0 +1,74 @@
+Nouveau modèle
+
+--------------------------
+Starting at epoch: 0
+--------------------------
+Epoch: 1/500, loss: 3.096e-01, data: 3.093e-01, pde: 2.951e-04
+Epoch: 2/500, loss: 2.756e-01, data: 2.751e-01, pde: 4.828e-04
+Epoch: 3/500, loss: 2.441e-01, data: 2.436e-01, pde: 5.049e-04
+Epoch: 4/500, loss: 2.136e-01, data: 2.130e-01, pde: 5.779e-04
+Epoch: 5/500, loss: 1.824e-01, data: 1.819e-01, pde: 5.875e-04
+---------------------
+Epoch 500/500 :
+Train : loss: 7.848e-02, data: 7.605e-02, pde: 4.227e-05
+Test  : loss: 7.712e-02, data: 7.516e-02, pde: 4.579e-05
+time: 56s
+
+Modèle chargé
+
+
+Loss chargée
+
+--------------------------
+Starting at epoch: 500
+--------------------------
+---------------------
+Epoch 1000/5500 :
+Train : loss: 7.637e-02, data: 7.607e-02, pde: 1.520e-04
+Test  : loss: 7.710e-02, data: 7.679e-02, pde: 1.461e-04
+time: 46s
+---------------------
+Epoch 1500/5500 :
+Train : loss: 7.619e-02, data: 7.513e-02, pde: 6.288e-04
+Test  : loss: 7.688e-02, data: 7.572e-02, pde: 7.513e-04
+time: 87s
+---------------------
+Epoch 2000/5500 :
+Train : loss: 7.610e-02, data: 7.288e-02, pde: 2.276e-03
+Test  : loss: 7.676e-02, data: 7.327e-02, pde: 2.659e-03
+time: 128s
+---------------------
+Epoch 2500/5500 :
+Train : loss: 7.480e-02, data: 5.874e-02, pde: 1.240e-02
+Test  : loss: 7.550e-02, data: 5.920e-02, pde: 7.413e-03
+time: 168s
+---------------------
+Epoch 3000/5500 :
+Train : loss: 5.320e-02, data: 4.715e-02, pde: 2.849e-03
+Test  : loss: 5.291e-02, data: 4.695e-02, pde: 2.115e-03
+time: 209s
+---------------------
+Epoch 3500/5500 :
+Train : loss: 4.769e-02, data: 4.209e-02, pde: 2.593e-03
+Test  : loss: 4.746e-02, data: 4.138e-02, pde: 1.821e-03
+time: 249s
+---------------------
+Epoch 4000/5500 :
+Train : loss: 4.556e-02, data: 3.805e-02, pde: 2.068e-03
+Test  : loss: 4.496e-02, data: 3.700e-02, pde: 2.016e-03
+time: 290s
+---------------------
+Epoch 4500/5500 :
+Train : loss: 4.410e-02, data: 2.777e-02, pde: 3.495e-03
+Test  : loss: 4.413e-02, data: 3.040e-02, pde: 1.333e-03
+time: 330s
+---------------------
+Epoch 5000/5500 :
+Train : loss: 3.019e-02, data: 1.337e-02, pde: 1.489e-03
+Test  : loss: 3.068e-02, data: 1.355e-02, pde: 1.437e-03
+time: 372s
+---------------------
+Epoch 5500/5500 :
+Train : loss: 1.333e-02, data: 1.082e-02, pde: 6.755e-04
+Test  : loss: 1.417e-02, data: 1.157e-02, pde: 6.097e-04
+time: 414s
