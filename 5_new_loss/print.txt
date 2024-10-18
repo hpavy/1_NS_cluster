@@ -176,3 +176,76 @@ Epoch 15000/15000 :
 Train : loss: 2.343e-02, data: 1.591e-02, pde: 6.679e-03
 Test  : loss: 2.585e-02, data: 1.686e-02, pde: 8.419e-03
 time: 434s
+
+Modèle chargé
+
+
+Loss chargée
+
+--------------------------
+Starting at epoch: 15000
+--------------------------
+---------------------
+Epoch 15500/20000 :
+Train : loss: 5.554e-02, data: 7.022e-02, pde: 1.486e-03
+Test  : loss: 5.521e-02, data: 6.906e-02, pde: 1.450e-03
+time: 52s
+
+Modèle chargé
+
+
+Loss chargée
+
+--------------------------
+Starting at epoch: 15000
+--------------------------
+---------------------
+Epoch 15500/20000 :
+Train : loss: 2.440e-02, data: 1.626e-02, pde: 7.463e-03
+Test  : loss: 2.522e-02, data: 1.724e-02, pde: 7.664e-03
+time: 52s
+---------------------
+Epoch 16000/20000 :
+Train : loss: 2.364e-02, data: 1.643e-02, pde: 6.982e-03
+Test  : loss: 2.489e-02, data: 1.678e-02, pde: 7.890e-03
+time: 94s
+---------------------
+Epoch 16500/20000 :
+Train : loss: 2.341e-02, data: 1.624e-02, pde: 6.961e-03
+Test  : loss: 2.489e-02, data: 1.655e-02, pde: 8.166e-03
+time: 137s
+---------------------
+Epoch 17000/20000 :
+Train : loss: 2.321e-02, data: 1.579e-02, pde: 7.139e-03
+Test  : loss: 2.493e-02, data: 1.659e-02, pde: 8.196e-03
+time: 181s
+---------------------
+Epoch 17500/20000 :
+Train : loss: 2.303e-02, data: 1.605e-02, pde: 6.874e-03
+Test  : loss: 2.501e-02, data: 1.624e-02, pde: 8.729e-03
+time: 223s
+---------------------
+Epoch 18000/20000 :
+Train : loss: 2.285e-02, data: 1.588e-02, pde: 6.854e-03
+Test  : loss: 2.514e-02, data: 1.611e-02, pde: 9.049e-03
+time: 265s
+---------------------
+Epoch 18500/20000 :
+Train : loss: 2.305e-02, data: 1.565e-02, pde: 7.128e-03
+Test  : loss: 2.489e-02, data: 1.636e-02, pde: 8.373e-03
+time: 309s
+---------------------
+Epoch 19000/20000 :
+Train : loss: 2.259e-02, data: 1.549e-02, pde: 7.016e-03
+Test  : loss: 2.497e-02, data: 1.624e-02, pde: 8.620e-03
+time: 353s
+---------------------
+Epoch 19500/20000 :
+Train : loss: 2.235e-02, data: 1.534e-02, pde: 6.923e-03
+Test  : loss: 2.514e-02, data: 1.613e-02, pde: 8.875e-03
+time: 396s
+---------------------
+Epoch 20000/20000 :
+Train : loss: 2.213e-02, data: 1.519e-02, pde: 6.901e-03
+Test  : loss: 2.532e-02, data: 1.606e-02, pde: 9.164e-03
+time: 438s
