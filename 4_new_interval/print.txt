@@ -1,0 +1,119 @@
+Nouveau modèle
+
+--------------------------
+Starting at epoch: 0
+--------------------------
+Epoch: 1/5000, loss: 3.076e-01, data: 3.072e-01, pde: 4.030e-04
+Epoch: 2/5000, loss: 2.736e-01, data: 2.732e-01, pde: 4.185e-04
+Epoch: 3/5000, loss: 2.422e-01, data: 2.418e-01, pde: 4.008e-04
+Epoch: 4/5000, loss: 2.117e-01, data: 2.113e-01, pde: 4.328e-04
+Epoch: 5/5000, loss: 1.807e-01, data: 1.801e-01, pde: 5.458e-04
+---------------------
+Epoch 500/5000 :
+Train : loss: 7.865e-02, data: 7.605e-02, pde: 5.599e-05
+Test  : loss: 7.501e-02, data: 7.299e-02, pde: 6.745e-05
+time: 47s
+---------------------
+Epoch 1000/5000 :
+Train : loss: 7.602e-02, data: 7.437e-02, pde: 1.369e-03
+Test  : loss: 7.291e-02, data: 7.115e-02, pde: 1.056e-03
+time: 88s
+---------------------
+Epoch 1500/5000 :
+Train : loss: 7.415e-02, data: 6.524e-02, pde: 4.885e-03
+Test  : loss: 7.119e-02, data: 6.287e-02, pde: 4.424e-03
+time: 129s
+---------------------
+Epoch 2000/5000 :
+Train : loss: 6.735e-02, data: 5.820e-02, pde: 4.626e-03
+Test  : loss: 6.487e-02, data: 5.514e-02, pde: 5.542e-03
+time: 169s
+---------------------
+Epoch 2500/5000 :
+Train : loss: 7.072e-02, data: 5.872e-02, pde: 3.943e-03
+Test  : loss: 6.790e-02, data: 5.515e-02, pde: 6.213e-03
+time: 209s
+---------------------
+Epoch 3000/5000 :
+Train : loss: 6.277e-02, data: 5.589e-02, pde: 4.715e-03
+Test  : loss: 6.163e-02, data: 5.422e-02, pde: 5.622e-03
+time: 250s
+---------------------
+Epoch 3500/5000 :
+Train : loss: 5.929e-02, data: 4.974e-02, pde: 4.469e-03
+Test  : loss: 5.821e-02, data: 4.851e-02, pde: 5.005e-03
+time: 290s
+---------------------
+Epoch 4000/5000 :
+Train : loss: 5.406e-02, data: 4.937e-02, pde: 4.386e-03
+Test  : loss: 5.330e-02, data: 4.835e-02, pde: 4.765e-03
+time: 331s
+---------------------
+Epoch 4500/5000 :
+Train : loss: 5.329e-02, data: 4.941e-02, pde: 3.745e-03
+Test  : loss: 5.263e-02, data: 4.835e-02, pde: 4.155e-03
+time: 372s
+---------------------
+Epoch 5000/5000 :
+Train : loss: 5.306e-02, data: 4.944e-02, pde: 3.802e-03
+Test  : loss: 5.245e-02, data: 4.826e-02, pde: 3.847e-03
+time: 413s
+
+Modèle chargé
+
+
+Loss chargée
+
+--------------------------
+Starting at epoch: 5000
+--------------------------
+---------------------
+Epoch 5500/10000 :
+Train : loss: 5.401e-02, data: 4.985e-02, pde: 3.693e-03
+Test  : loss: 5.279e-02, data: 4.833e-02, pde: 4.027e-03
+time: 48s
+---------------------
+Epoch 6000/10000 :
+Train : loss: 5.339e-02, data: 4.951e-02, pde: 3.787e-03
+Test  : loss: 5.259e-02, data: 4.805e-02, pde: 4.468e-03
+time: 88s
+---------------------
+Epoch 6500/10000 :
+Train : loss: 5.318e-02, data: 4.928e-02, pde: 3.993e-03
+Test  : loss: 5.263e-02, data: 4.763e-02, pde: 4.877e-03
+time: 129s
+---------------------
+Epoch 7000/10000 :
+Train : loss: 5.298e-02, data: 4.883e-02, pde: 3.901e-03
+Test  : loss: 5.268e-02, data: 4.735e-02, pde: 5.115e-03
+time: 170s
+---------------------
+Epoch 7500/10000 :
+Train : loss: 5.274e-02, data: 4.795e-02, pde: 4.808e-03
+Test  : loss: 5.280e-02, data: 4.673e-02, pde: 6.017e-03
+time: 211s
+---------------------
+Epoch 8000/10000 :
+Train : loss: 5.247e-02, data: 4.587e-02, pde: 6.904e-03
+Test  : loss: 5.258e-02, data: 4.495e-02, pde: 8.168e-03
+time: 252s
+---------------------
+Epoch 8500/10000 :
+Train : loss: 5.136e-02, data: 4.084e-02, pde: 8.238e-03
+Test  : loss: 5.222e-02, data: 4.027e-02, pde: 1.032e-02
+time: 293s
+---------------------
+Epoch 9000/10000 :
+Train : loss: 4.637e-02, data: 3.249e-02, pde: 9.889e-03
+Test  : loss: 4.831e-02, data: 3.231e-02, pde: 1.332e-02
+time: 334s
+---------------------
+Epoch 9500/10000 :
+Train : loss: 3.985e-02, data: 2.321e-02, pde: 1.218e-02
+Test  : loss: 4.387e-02, data: 2.353e-02, pde: 1.594e-02
+time: 375s
+---------------------
+Epoch 10000/10000 :
+Train : loss: 3.390e-02, data: 1.923e-02, pde: 1.325e-02
+Test  : loss: 3.949e-02, data: 1.925e-02, pde: 2.152e-02
+time: 416s
